@@ -25,7 +25,7 @@ Audio_Port_Rescan :: enum{
 
 Audio_Port_Info :: struct{
 	id:            Clap_Id,
-	name:          cstring,
+	name:          [NAME_SIZE]u8,
 	flags:         u32,
 	channel_count: u32,
 	port_type:     cstring,
@@ -48,7 +48,7 @@ EXT_AUDIO_PORTS_CONFIG_INFO :: "clap.audio-ports-config-info/draft-0"
 
 Audio_Ports_Config :: struct{
 	id:   u32,
-	name: cstring,
+	name: [NAME_SIZE]u8,
 	
 	input_port_count:  u32,
 	output_port_count: u32,
@@ -69,10 +69,10 @@ Plugin_Audio_Ports_Config :: struct{
 }
 
 Plugin_Audio_Ports_Config_Info :: struct{
-	current_config: proc "c" (plugin: ^Plugin) -> Clap_Id
-	get:            proc "c" (plugin: ^Plugin, config_id: Clap_Id, port_index: u32, is_input: bool, info: ^Audio_Port_Info)
+	current_config: proc "c" (plugin: ^Plugin) -> Clap_Id,
+	get:            proc "c" (plugin: ^Plugin, config_id: Clap_Id, port_index: u32, is_input: bool, info: ^Audio_Port_Info),
 }
 
-Host_Audio_Ports_Config {
+Host_Audio_Ports_Config :: struct{
 	rescan: proc "c" (host: ^Host)
 }
