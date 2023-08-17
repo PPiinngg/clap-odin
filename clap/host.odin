@@ -3,7 +3,7 @@ package clap
 import "core:c"
 
 Host :: struct{
-	clap_version: Clap_Version,
+	clap_version: Version,
 
 	host_data: rawptr,
 
