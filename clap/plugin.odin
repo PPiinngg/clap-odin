@@ -24,6 +24,7 @@ Plugin_Factory :: struct{
 }
 
 Plugin :: struct{
+	desc:        ^Plugin_Descriptor,
 	plugin_data: rawptr,
 
 	init:             proc "c" (plugin: ^Plugin) -> bool,
