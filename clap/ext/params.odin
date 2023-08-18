@@ -1,4 +1,6 @@
-package clap
+package ext
+
+import clap "../../clap"
 
 EXT_PARAMS :: "clap.params"
 
@@ -35,12 +37,12 @@ Param_Clear_Flag :: enum u32{
 }
 
 Param_Info :: struct{
-    id:     Clap_Id,
+    id:     clap.Clap_Id,
     flags:  u32,
     cookie: rawptr,
 
-    name:   [NAME_SIZE]u8,
-    module: [PATH_SIZE]u8,
+    name:   [clap.NAME_SIZE]u8,
+    module: [clap.PATH_SIZE]u8,
 
     min_value:     f64,
     max_value:     f64,
@@ -48,16 +50,16 @@ Param_Info :: struct{
 }
 
 Plugin_Params :: struct{
-    count:         proc "c" (plugin: ^Plugin) -> u32,
-    get_info:      proc "c" (plugin: ^Plugin, param_index: u32, param_info: ^Param_Info) -> bool,
-    get_value:     proc "c" (plugin: ^Plugin, param_id: Clap_Id, out_value: ^f64) -> bool,
-    value_to_text: proc "c" (plugin: ^Plugin, param_id: Clap_Id, value: f64, out_buffer: cstring, out_buffer_capacity: u32) -> bool,
-    text_to_value: proc "c" (plugin: ^Plugin, param_id: Clap_Id, param_value_text: cstring, out_value: ^f64) -> bool,
-    flush:         proc "c" (plugin: ^Plugin, in_events: ^Input_Events, out_events: ^Output_Events),
+    count:         proc "c" (plugin: ^clap.Plugin) -> u32,
+    get_info:      proc "c" (plugin: ^clap.Plugin, param_index: u32, param_info: ^Param_Info) -> bool,
+    get_value:     proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, out_value: ^f64) -> bool,
+    value_to_text: proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, value: f64, out_buffer: cstring, out_buffer_capacity: u32) -> bool,
+    text_to_value: proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, param_value_text: cstring, out_value: ^f64) -> bool,
+    flush:         proc "c" (plugin: ^clap.Plugin, in_events: ^clap.Input_Events, out_events: ^clap.Output_Events),
 }
 
 Host_Params :: struct{
-    rescan:        proc "c" (host: ^Host, flags: u32),
-    clear:         proc "c" (host: ^Host, param_id: Clap_Id, flags: u32),
-    request_flush: proc "c" (host: ^Host),
+    rescan:        proc "c" (host: ^clap.Host, flags: u32),
+    clear:         proc "c" (host: ^clap.Host, param_id: clap.Clap_Id, flags: u32),
+    request_flush: proc "c" (host: ^clap.Host),
 }

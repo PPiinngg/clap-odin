@@ -1,4 +1,6 @@
-package clap
+package ext
+
+import clap "../../clap"
 
 Log_Severity :: enum i32{
     DEBUG   = 0,
@@ -11,5 +13,5 @@ Log_Severity :: enum i32{
 }
 
 Host_Log :: struct{
-    log: proc "c" (host: ^Host, severity: Log_Severity, msg: cstring),
+    log: proc "c" (host: ^clap.Host, severity: Log_Severity, msg: cstring),
 }
