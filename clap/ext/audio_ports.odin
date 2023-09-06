@@ -7,14 +7,14 @@ EXT_AUDIO_PORTS   :: "clap.audio-ports"
 AUDIO_PORT_MONO   :: "mono"
 AUDIO_PORT_STEREO :: "stereo"
 
-Audio_Port_Flag :: enum{
+Audio_Port_Flag :: enum u32{
 	IS_MAIN                     = 1 << 0,
 	SUPPORTS_64BITS             = 1 << 1,
 	PREFERS_64BITS              = 1 << 2,
 	REQUIRES_COMMON_SAMPLE_SIZE = 1 << 3,
 }
 
-Audio_Port_Rescan :: enum{
+Audio_Port_Rescan :: enum u32{
 	NAMES         = 1 << 0,
 	FLAGS         = 1 << 1,
 	CHANNEL_COUNT = 1 << 2,
