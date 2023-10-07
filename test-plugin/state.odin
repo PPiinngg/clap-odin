@@ -3,7 +3,7 @@ package test_plugin
 import clap "../clap"
 import ext "../clap/ext"
 
-State :: struct{
+State :: struct {
     plugin:            clap.Plugin,
     host:              ^clap.Host,
     host_latency:      ^ext.Host_Latency,

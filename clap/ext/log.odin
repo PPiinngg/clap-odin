@@ -12,6 +12,6 @@ Log_Severity :: enum i32{
     PLUGIN_MISBEHAVING = 6,
 }
 
-Host_Log :: struct{
+Host_Log :: struct {
     log: proc "c" (host: ^clap.Host, severity: Log_Severity, msg: cstring),
 }

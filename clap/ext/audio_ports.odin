@@ -23,7 +23,7 @@ Audio_Port_Rescan :: enum u32{
 	LIST          = 1 << 5,
 }
 
-Audio_Port_Info :: struct{
+Audio_Port_Info :: struct {
 	id:            clap.Clap_Id,
 	name:          [clap.NAME_SIZE]u8,
 	flags:         u32,
@@ -32,12 +32,12 @@ Audio_Port_Info :: struct{
 	in_place_pair: u32,
 }
 
-Plugin_Audio_Ports :: struct{
+Plugin_Audio_Ports :: struct {
 	count: proc "c" (plugin: ^clap.Plugin, is_input: bool) -> u32,
 	get:   proc "c" (plugin: ^clap.Plugin, index: u32, is_input: bool, info: ^Audio_Port_Info) -> bool,
 }
 
-Host_Audio_Ports :: struct{
+Host_Audio_Ports :: struct {
 	is_rescan_flag_supported: proc "c" (host: ^clap.Host, flag: u32) -> bool,
 	rescan:                   proc "c" (host: ^clap.Host, flags: u32),
 }
@@ -46,7 +46,7 @@ Host_Audio_Ports :: struct{
 EXT_AUDIO_PORTS_CONFIG      :: "clap.audio-ports-config"
 EXT_AUDIO_PORTS_CONFIG_INFO :: "clap.audio-ports-config-info/draft-0"
 
-Audio_Ports_Config :: struct{
+Audio_Ports_Config :: struct {
 	id:   u32,
 	name: [clap.NAME_SIZE]u8,
 	
@@ -62,17 +62,17 @@ Audio_Ports_Config :: struct{
 	main_output_port_type:     cstring,
 }
 
-Plugin_Audio_Ports_Config :: struct{
+Plugin_Audio_Ports_Config :: struct {
 	count:  proc "c" (plugin: ^clap.Plugin) -> u32,
 	get:    proc "c" (plugin: ^clap.Plugin, index: u32, config: ^Audio_Ports_Config) -> bool,
 	select: proc "c" (plugin: ^clap.Plugin, config_id: clap.Clap_Id) -> bool,
 }
 
-Plugin_Audio_Ports_Config_Info :: struct{
+Plugin_Audio_Ports_Config_Info :: struct {
 	current_config: proc "c" (plugin: ^clap.Plugin) -> clap.Clap_Id,
 	get:            proc "c" (plugin: ^clap.Plugin, config_id: clap.Clap_Id, port_index: u32, is_input: bool, info: ^Audio_Port_Info),
 }
 
-Host_Audio_Ports_Config :: struct{
+Host_Audio_Ports_Config :: struct {
 	rescan: proc "c" (host: ^clap.Host)
 }

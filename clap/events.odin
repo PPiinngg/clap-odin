@@ -26,7 +26,7 @@ Event_Type :: enum u32{
     MIDI2      = 12,
 }
 
-Event_Header :: struct{
+Event_Header :: struct {
     size:       u32,
     time:       u32,
     space_id:   u16,
@@ -34,13 +34,13 @@ Event_Header :: struct{
     flags:      u32,
 }
 
-Input_Events :: struct{
+Input_Events :: struct {
     ctx:  rawptr,
     size: proc "c" (list: ^Input_Events) -> u32,
     get:  proc "c" (list: ^Input_Events, index: u32) -> ^Event_Header,
 }
 
-Output_Events :: struct{
+Output_Events :: struct {
     ctx:      rawptr,
     try_push: proc "c" (list: ^Input_Events, event: ^Event_Header) -> bool,
 }
@@ -48,7 +48,7 @@ Output_Events :: struct{
 /////////////////
 // Note Events //
 /////////////////
-Event_Note :: struct{
+Event_Note :: struct {
     header: Event_Header,
 
     note_id:    i32,
@@ -68,7 +68,7 @@ Note_Expression_Type :: enum i32{
    PRESSURE   = 6,
 }
 
-Event_Note_Expression :: struct{
+Event_Note_Expression :: struct {
     header:        Event_Header,
     expression_id: Note_Expression_Type,
 
@@ -82,7 +82,7 @@ Event_Note_Expression :: struct{
 //////////////////////
 // Parameter Events //
 //////////////////////
-Event_Param_Value :: struct{
+Event_Param_Value :: struct {
     header: Event_Header,
 
     param_id: Clap_Id,
@@ -96,7 +96,7 @@ Event_Param_Value :: struct{
     value: f64,
 }
 
-Event_Param_Mod :: struct{
+Event_Param_Mod :: struct {
     header: Event_Header,
 
     param_id: Clap_Id,
@@ -110,7 +110,7 @@ Event_Param_Mod :: struct{
     amount: f64,
 }
 
-Event_Param_Gesture :: struct{
+Event_Param_Gesture :: struct {
     header: Event_Header,
 
     param_id: Clap_Id,
@@ -130,7 +130,7 @@ Transport_Flags :: enum u32{
     IS_WITHIN_PRE_ROLL   = 1 << 7,
 };
 
-Event_Transport :: struct{
+Event_Transport :: struct {
     header: Event_Header,
     flags:  u32,
 
@@ -155,14 +155,14 @@ Event_Transport :: struct{
 /////////////////
 // MIDI Events //
 /////////////////
-Event_Midi :: struct{
+Event_Midi :: struct {
     header: Event_Header,
 
     port_index: u16,
     data:    [3]u8,
 }
 
-Event_Midi_Sysex :: struct{
+Event_Midi_Sysex :: struct {
     header: Event_Header,
 
     port_index: u16,
@@ -170,7 +170,7 @@ Event_Midi_Sysex :: struct{
     size:       u32,
 }
 
-Event_Midi2 :: struct{
+Event_Midi2 :: struct {
     header: Event_Header,
 
     port_index: u16,

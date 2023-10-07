@@ -2,7 +2,7 @@ package clap
 
 import "core:c"
 
-Host :: struct{
+Host :: struct {
 	clap_version: Version,
 
 	host_data: rawptr,

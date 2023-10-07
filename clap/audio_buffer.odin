@@ -1,6 +1,6 @@
 package clap
 
-Audio_Buffer :: struct{
+Audio_Buffer :: struct {
     data32: [^][^]f32,
     data64: [^][^]f64,
 

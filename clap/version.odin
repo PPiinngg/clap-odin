@@ -10,7 +10,7 @@ clap_version_is_compatible :: proc "c" (version: Version) -> bool {
 	return version.major >= 1
 }
 
-Version :: struct{
+Version :: struct {
 	major:    u32,
 	minor:    u32,
 	revision: u32,

@@ -12,11 +12,11 @@ Posix_FD_Event_Flag :: enum u32{
     ERROR = 1 << 2,
 }
 
-Plugin_Posix_FD_Support :: struct{
+Plugin_Posix_FD_Support :: struct {
     on_fd: proc "c" (plugin: ^clap.Plugin, fd: c.int, flags: u32),
 }
 
-Host_Posix_FD_Support :: struct{
+Host_Posix_FD_Support :: struct {
     register_fd:   proc "c" (host: ^clap.Host, fd: c.int, flags: u32) -> bool,
     modify_fd:     proc "c" (host: ^clap.Host, fd: c.int, flags: u32) -> bool,
     unregister_fd: proc "c" (host: ^clap.Host, fd: c.int) -> bool,

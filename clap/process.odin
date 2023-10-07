@@ -8,7 +8,7 @@ Process_Status :: enum i32{
     SLEEP                 = 4,
 }
 
-Process :: struct{
+Process :: struct {
     steady_time:  i64,
     frames_count: u32,
     transport:    ^Event_Transport,

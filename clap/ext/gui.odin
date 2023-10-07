@@ -22,7 +22,7 @@ hwnd   :: rawptr  // Win32
 nsview :: rawptr  // Cocoa
 xwnd   :: c.ulong // X11
 
-Window :: struct{
+Window :: struct {
 	api: cstring,
 	handle: union{
 		rawptr, // hwnd, nsview, other
@@ -30,7 +30,7 @@ Window :: struct{
 	},
 }
 
-Gui_Resize_Hints :: struct{
+Gui_Resize_Hints :: struct {
 	can_resize_horizontally: bool,
 	can_resize_vertically:   bool,
 	preserve_aspect_ratio:   bool,
@@ -38,7 +38,7 @@ Gui_Resize_Hints :: struct{
 	aspect_ratio_height:     u32,
 }
 
-Plugin_Gui :: struct{
+Plugin_Gui :: struct {
 	is_api_supported:  proc "c" (plugin: ^clap.Plugin, api: cstring, is_floating: bool) -> bool,
 	get_preferred_api: proc "c" (plugin: ^clap.Plugin, api: ^cstring, is_floating: bool) -> bool,
 
@@ -60,7 +60,7 @@ Plugin_Gui :: struct{
 	hide:              proc "c" (plugin: ^clap.Plugin) -> bool,
 }
 
-Host_Gui :: struct{
+Host_Gui :: struct {
 	resize_hints_changed: proc "c" (host: ^clap.Host),
 	request_resize:       proc "c" (host: ^clap.Host) -> bool,
 	request_show:         proc "c" (host: ^clap.Host) -> bool,

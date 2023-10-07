@@ -2,7 +2,7 @@ package clap
 
 import "core:c"
 
-Plugin_Descriptor :: struct{
+Plugin_Descriptor :: struct {
 	clap_version: Version,
 
 	id:          cstring,
@@ -17,13 +17,13 @@ Plugin_Descriptor :: struct{
 }
 
 PLUGIN_FACTORY_ID :: "clap.plugin-factory"
-Plugin_Factory :: struct{
+Plugin_Factory :: struct {
 	get_plugin_count:      proc "c" (factory: ^Plugin_Factory) -> u32,
 	get_plugin_descriptor: proc "c" (factory: ^Plugin_Factory, index: u32) -> ^Plugin_Descriptor,
 	create_plugin:         proc "c" (factory: ^Plugin_Factory, host: ^Host, plugin_id: cstring) -> ^Plugin,
 }
 
-Plugin :: struct{
+Plugin :: struct {
 	desc:        ^Plugin_Descriptor,
 	plugin_data: rawptr,
 

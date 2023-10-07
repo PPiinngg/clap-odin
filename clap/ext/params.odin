@@ -36,7 +36,7 @@ Param_Clear_Flag :: enum u32{
    MODULATIONS = 1 << 2,
 }
 
-Param_Info :: struct{
+Param_Info :: struct {
     id:     clap.Clap_Id,
     flags:  u32,
     cookie: rawptr,
@@ -49,7 +49,7 @@ Param_Info :: struct{
     default_value: f64,
 }
 
-Plugin_Params :: struct{
+Plugin_Params :: struct {
     count:         proc "c" (plugin: ^clap.Plugin) -> u32,
     get_info:      proc "c" (plugin: ^clap.Plugin, param_index: u32, param_info: ^Param_Info) -> bool,
     get_value:     proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, out_value: ^f64) -> bool,
@@ -58,7 +58,7 @@ Plugin_Params :: struct{
     flush:         proc "c" (plugin: ^clap.Plugin, in_events: ^clap.Input_Events, out_events: ^clap.Output_Events),
 }
 
-Host_Params :: struct{
+Host_Params :: struct {
     rescan:        proc "c" (host: ^clap.Host, flags: u32),
     clear:         proc "c" (host: ^clap.Host, param_id: clap.Clap_Id, flags: u32),
     request_flush: proc "c" (host: ^clap.Host),

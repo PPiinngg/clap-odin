@@ -4,10 +4,10 @@ import clap "../../clap"
 
 EXT_TAIL :: "clap.tail"
 
-Plugin_Tail :: struct{
+Plugin_Tail :: struct {
     get: proc "c" (plugin: ^clap.Plugin) -> u32,
 }
 
-Host_Tail :: struct{
+Host_Tail :: struct {
     changed: proc "c" (host: ^clap.Host),
 }
