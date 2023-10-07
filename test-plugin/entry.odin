@@ -47,7 +47,7 @@ factory := clap.Plugin_Factory{
         p.plugin.start_processing = start_processing
         p.plugin.stop_processing = stop_processing
         p.plugin.reset = reset
-        p.plugin.process = process
+        p.plugin.process = init_process
         p.plugin.get_extension = get_extension
         p.plugin.on_main_thread = proc "c" (plugin: ^clap.Plugin) {}
 
