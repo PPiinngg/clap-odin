@@ -39,7 +39,7 @@ factory := clap.Plugin_Factory{
         
         p.host = host
         p.plugin.desc = &descriptor
-        p.plugin.plugin_data = &p
+        p.plugin.plugin_data = p
         p.plugin.init = init
         p.plugin.destroy = destroy
         p.plugin.activate = activate
