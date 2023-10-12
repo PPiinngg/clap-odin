@@ -1,6 +1,6 @@
 package ext
 
-import clap "../../clap"
+import clap "../../clap-odin"
 
 // Thread Check
 EXT_THREAD_CHECK :: "clap.thread-check"

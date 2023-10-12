@@ -1,7 +1,7 @@
 package ext
 
 import "core:c"
-import clap "../../clap"
+import clap "../../clap-odin"
 
 EXT_GUI :: "clap.gui"
 

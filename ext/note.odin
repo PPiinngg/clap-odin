@@ -1,6 +1,6 @@
 package ext
 
-import clap "../../clap"
+import clap "../../clap-odin"
 
 // Note Name
 EXT_NOTE_NAME :: "clap.note-name"

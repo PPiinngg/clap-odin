@@ -1,6 +1,6 @@
 package ext
 
-import clap "../../clap"
+import clap "../../clap-odin"
 
 // Audio Ports
 EXT_AUDIO_PORTS   :: "clap.audio-ports"

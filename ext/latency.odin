@@ -1,6 +1,6 @@
 package ext
 
-import clap "../../clap"
+import clap "../../clap-odin"
 
 EXT_LATENCY :: "clap.latency"
 
