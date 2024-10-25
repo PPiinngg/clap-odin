@@ -41,8 +41,8 @@ Param_Info :: struct {
     flags:  u32,
     cookie: rawptr,
 
-    name:   cstring,
-    module: cstring,
+    name:   [clap.NAME_SIZE]u8,
+    module: [clap.PATH_SIZE]u8,
 
     min_value:     f64,
     max_value:     f64,
