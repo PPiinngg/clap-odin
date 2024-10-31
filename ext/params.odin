@@ -54,7 +54,7 @@ Plugin_Params :: struct {
     get_info:      proc "c" (plugin: ^clap.Plugin, param_index: u32, param_info: ^Param_Info) -> bool,
     get_value:     proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, out_value: ^f64) -> bool,
     value_to_text: proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, value: f64, out_buffer: [^]u8, out_buffer_capacity: u32) -> bool,
-    text_to_value: proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, param_value_text: [^]u8, out_value: ^f64) -> bool,
+    text_to_value: proc "c" (plugin: ^clap.Plugin, param_id: clap.Clap_Id, param_value_text: cstring, out_value: ^f64) -> bool,
     flush:         proc "c" (plugin: ^clap.Plugin, in_events: ^clap.Input_Events, out_events: ^clap.Output_Events),
 }
 
