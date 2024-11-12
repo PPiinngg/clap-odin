@@ -33,8 +33,8 @@ Note_Dialect :: enum u32{
 
 Note_Port_Info :: struct {
     id: clap.Clap_Id,
-    supported_dialects: u32,
-    preferred_dialects: u32,
+    supported_dialects: Note_Dialect,
+    preferred_dialects: Note_Dialect,
     name: [clap.NAME_SIZE]u8,
 }
 

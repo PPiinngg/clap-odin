@@ -38,7 +38,7 @@ Param_Clear_Flag :: enum u32{
 
 Param_Info :: struct {
     id:     clap.Clap_Id,
-    flags:  u32,
+    flags:  Param_Info_Flag,
     cookie: rawptr,
 
     name:   [clap.NAME_SIZE]u8,
